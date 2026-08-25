@@ -30,9 +30,9 @@ Prebuilt installers for every tagged release are on the
 
 | OS | Download | Install |
 |---|---|---|
-| **macOS** | `Desktop Pet-<version>.dmg` (also `-arm64.dmg`) | Open the `.dmg`, drag **Desktop Pet** into **Applications**, then launch it from Applications (see the Gatekeeper note below for the first launch). |
-| **Windows** | `Desktop Pet Setup <version>.exe` | Run the installer and follow the prompts (see the SmartScreen note below). It installs per-user, no admin rights needed. |
-| **Linux** | `Desktop Pet-<version>.AppImage` | `chmod +x` the file and run it — no install step. |
+| **macOS** | `DesktopPet-<version>-mac-arm64.dmg` (Apple Silicon) or `DesktopPet-<version>-mac-x64.dmg` (Intel) | Open the `.dmg`, drag **Desktop Pet** into **Applications**, then launch it from Applications (see the Gatekeeper note below for the first launch). |
+| **Windows** | `DesktopPet-<version>-win-x64.exe` | Run the installer and follow the prompts (see the SmartScreen note below). It installs per-user, no admin rights needed. |
+| **Linux** | `DesktopPet-<version>-linux-x64.AppImage` | `chmod +x` the file and run it — no install step. |
 
 Once running, look for the **paw icon in your system tray / menu bar** — the
 pet has no window of its own. Right-click the icon to switch animals or quit.
@@ -71,7 +71,7 @@ sha256sum --ignore-missing -c SHA256SUMS          # Linux
 
 ```powershell
 # Windows
-Get-FileHash 'Desktop Pet Setup 0.1.0.exe' -Algorithm SHA256
+Get-FileHash DesktopPet-<version>-win-x64.exe -Algorithm SHA256
 # compare the printed hash with the matching line in SHA256SUMS
 ```
 

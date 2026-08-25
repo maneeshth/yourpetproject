@@ -17,13 +17,23 @@
     "appId": "io.github.desktoppet",
     "productName": "Desktop Pet",
     "mac": {
-      "category": "public.app-category.entertainment"
+      "category": "public.app-category.entertainment",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
     },
     "win": {
       "target": "nsis"
     },
     "linux": {
       "target": "AppImage"
-    }
+    },
+    "artifactName": "DesktopPet-${version}-${os}-${arch}.${ext}"
   }
 }
