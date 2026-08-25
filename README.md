@@ -37,6 +37,17 @@ Prebuilt installers for every tagged release are on the
 Once running, look for the **paw icon in your system tray / menu bar** — the
 pet has no window of its own. Right-click the icon to switch animals or quit.
 
+**Quitting and relaunching.** *Quit* in the tray menu exits the app completely
+(nothing keeps running in the background, and it does not start automatically
+at login). To bring the pet back:
+
+- **Windows** — open the Start menu and type **Desktop Pet**, or run
+  `%LOCALAPPDATA%\Programs\desktop-pet\Desktop Pet.exe`. Tip: right-click the
+  Start menu entry → **Pin to taskbar** for one-click relaunching.
+- **macOS** — open **Desktop Pet** from Applications (or Spotlight). Tip: with
+  it running, right-click its Dock icon → *Options → Keep in Dock*.
+- **Linux** — run the `.AppImage` again.
+
 **Package managers**
 
 ```bash
