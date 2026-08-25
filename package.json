@@ -1,0 +1,22 @@
+{
+  "name": "desktop-pet",
+  "version": "0.1.0",
+  "description": "A tiny open-source desktop pet that chases your cursor. Fully click-through — it never interferes with your work.",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.0"
+  },
+  "build": {
+    "appId": "io.github.desktoppet",
+    "productName": "Desktop Pet",
+    "mac": { "category": "public.app-category.entertainment" },
+    "win": { "target": "nsis" },
+    "linux": { "target": "AppImage" }
+  }
+}
