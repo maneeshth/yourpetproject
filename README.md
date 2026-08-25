@@ -26,8 +26,16 @@ Produces a `.dmg` (macOS), NSIS installer (Windows), or AppImage (Linux) in `dis
 ## Installation notes
 
 Prebuilt installers for every tagged release are on the
-[Releases page](../../releases): a `.dmg` for macOS, an `.exe` installer for
-Windows, and an `.AppImage` for Linux.
+[Releases page](../../releases). Grab the one for your OS:
+
+| OS | Download | Install |
+|---|---|---|
+| **macOS** | `Desktop Pet-<version>.dmg` (also `-arm64.dmg`) | Open the `.dmg`, drag **Desktop Pet** into **Applications**, then launch it from Applications (see the Gatekeeper note below for the first launch). |
+| **Windows** | `Desktop Pet Setup <version>.exe` | Run the installer and follow the prompts (see the SmartScreen note below). It installs per-user, no admin rights needed. |
+| **Linux** | `Desktop Pet-<version>.AppImage` | `chmod +x` the file and run it — no install step. |
+
+Once running, look for the **paw icon in your system tray / menu bar** — the
+pet has no window of its own. Right-click the icon to switch animals or quit.
 
 These builds are **not code-signed** (signing certificates cost money and this
 is a free hobby project), so macOS and Windows will warn you the first time you
