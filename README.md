@@ -91,8 +91,8 @@ Desktop Pet installs nothing outside its own folder and removes itself cleanly:
 
 - **Windows** — *Settings → Apps → Installed apps → Desktop Pet → Uninstall*, or
   `winget uninstall maneeshth.DesktopPet`. This removes the program folder
-  (`%LOCALAPPDATA%Programsdesktop-pet`), the Start Menu shortcut, the
-  Apps & Features entry, and the settings folder (`%APPDATA%desktop-pet`).
+  (`%LOCALAPPDATA%\Programs\desktop-pet`), the Start Menu shortcut, the
+  Apps & Features entry, and the settings folder (`%APPDATA%\desktop-pet`).
 - **macOS** — drag **Desktop Pet.app** from Applications to the Trash, or
   `brew uninstall --cask desktop-pet` (add `--zap` to also remove
   `~/Library/Application Support/desktop-pet`).
