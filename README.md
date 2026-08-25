@@ -37,6 +37,13 @@ Prebuilt installers for every tagged release are on the
 Once running, look for the **paw icon in your system tray / menu bar** — the
 pet has no window of its own. Right-click the icon to switch animals or quit.
 
+**Package managers**
+
+```bash
+# Windows (winget) — submitted to the community repo; available once the manifest is merged
+winget install maneeshth.DesktopPet
+```
+
 These builds are **not code-signed** (signing certificates cost money and this
 is a free hobby project), so macOS and Windows will warn you the first time you
 open the app. Nothing is wrong — you just need to tell the OS you trust it once:
@@ -77,6 +84,22 @@ Get-FileHash DesktopPet-<version>-win-x64.exe -Algorithm SHA256
 
 The whole app is a handful of small source files (`main.js`, `preload.js`,
 `pet.js`, `pet.html`), so auditing it before you build is a five-minute read.
+
+### Uninstalling
+
+Desktop Pet installs nothing outside its own folder and removes itself cleanly:
+
+- **Windows** — *Settings → Apps → Installed apps → Desktop Pet → Uninstall*, or
+  `winget uninstall maneeshth.DesktopPet`. This removes the program folder
+  (`%LOCALAPPDATA%Programsdesktop-pet`), the Start Menu shortcut, the
+  Apps & Features entry, and the settings folder (`%APPDATA%desktop-pet`).
+- **macOS** — drag **Desktop Pet.app** from Applications to the Trash, or
+  `brew uninstall --cask desktop-pet` (add `--zap` to also remove
+  `~/Library/Application Support/desktop-pet`).
+- **Linux** — delete the `.AppImage`; optionally remove `~/.config/desktop-pet`.
+
+The app never writes anywhere else (no services, no startup entries, no
+registry keys beyond the standard uninstall entry on Windows).
 
 ## How it works
 

@@ -34,6 +34,9 @@
     "linux": {
       "target": "AppImage"
     },
-    "artifactName": "DesktopPet-${version}-${os}-${arch}.${ext}"
+    "artifactName": "DesktopPet-${version}-${os}-${arch}.${ext}",
+    "nsis": {
+      "deleteAppDataOnUninstall": true
+    }
   }
 }
