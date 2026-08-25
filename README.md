@@ -44,10 +44,28 @@ open the app. Nothing is wrong — you just need to tell the OS you trust it onc
 - **Windows (SmartScreen)** — you'll see a blue *"Windows protected your PC"*
   dialog when running the installer. Click **More info**, then **Run anyway**.
   Some antivirus products may also flag an unsigned installer; if you'd rather
-  not trust the download, build it yourself from source with `npm run dist`.
+  not trust the download, verify its checksum (below) or build it yourself
+  from source with `npm run dist`.
 
 - **Linux (AppImage)** — no warning, but you need to make the file executable
-  first: `chmod +x Desktop-Pet-*.AppImage`, then run it.
+  first: `chmod +x *.AppImage`, then run it.
+
+### Verifying a download
+
+Every release ships a `SHA256SUMS` file generated in CI from the exact
+installers attached to it. To check that what you downloaded is what CI built:
+
+```bash
+# macOS / Linux (run in the folder containing the download and SHA256SUMS)
+shasum -a 256 --ignore-missing -c SHA256SUMS      # macOS
+sha256sum --ignore-missing -c SHA256SUMS          # Linux
+```
+
+```powershell
+# Windows
+Get-FileHash 'Desktop Pet Setup 0.1.0.exe' -Algorithm SHA256
+# compare the printed hash with the matching line in SHA256SUMS
+```
 
 The whole app is a handful of small source files (`main.js`, `preload.js`,
 `pet.js`, `pet.html`), so auditing it before you build is a five-minute read.

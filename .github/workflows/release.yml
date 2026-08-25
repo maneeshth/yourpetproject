@@ -37,11 +37,46 @@ jobs:
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload installers to GitHub Release
-        uses: softprops/action-gh-release@v2
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
         with:
-          files: |
+          name: installer-${{ matrix.os }}
+          path: |
             dist/*.dmg
             dist/*.exe
             dist/*.AppImage
-          fail_on_unmatched_files: false
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download all installers
+        uses: actions/download-artifact@v4
+        with:
+          path: installers
+          merge-multiple: true
+
+      - name: Generate SHA256SUMS
+        working-directory: installers
+        run: |
+          sha256sum *.dmg *.exe *.AppImage > SHA256SUMS
+          echo "::group::SHA256SUMS"
+          cat SHA256SUMS
+          echo "::endgroup::"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            installers/*.dmg
+            installers/*.exe
+            installers/*.AppImage
+            installers/SHA256SUMS
+          fail_on_unmatched_files: true
+          body: |
+            Unsigned builds — see the README's **Installation notes** for the
+            macOS Gatekeeper / Windows SmartScreen steps. Verify your download
+            against `SHA256SUMS` before installing.
