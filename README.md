@@ -51,7 +51,7 @@ at login). To bring the pet back:
 **Package managers**
 
 ```bash
-# Windows (winget) — submitted to the community repo; available once the manifest is merged
+# Windows (winget)
 winget install maneeshth.DesktopPet
 ```
 
