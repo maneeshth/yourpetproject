@@ -1,6 +1,6 @@
 {
   "name": "desktop-pet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A tiny open-source desktop pet that chases your cursor. Fully click-through — it never interferes with your work.",
   "main": "main.js",
   "license": "MIT",
