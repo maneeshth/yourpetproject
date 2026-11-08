@@ -1,8 +1,11 @@
 cask "desktop-pet" do
-  version "0.1.0"
-  sha256 "5db8ec00697c2d8de5d8264515d7fe85887af71a27e5029d9a5f044d54f3b47a"
+  arch arm: "arm64", intel: "x64"
 
-  url "https://github.com/maneeshth/yourpetproject/releases/download/v#{version}/Desktop.Pet-#{version}-arm64.dmg"
+  version "0.1.1"
+  sha256 arm:   "949862557c0753d743a6f2344f6a68f17fbed54baa85c67089366b57cf11737b",
+         intel: "d9cc42ff70d00894c305228feb6f3754b4556623a62485dae9cfdacd47a44300"
+
+  url "https://github.com/maneeshth/yourpetproject/releases/download/v#{version}/DesktopPet-#{version}-mac-#{arch}.dmg"
   name "Desktop Pet"
   desc "Tiny desktop pet that chases your cursor in a click-through overlay"
   homepage "https://github.com/maneeshth/yourpetproject"
@@ -11,9 +14,6 @@ cask "desktop-pet" do
     url :url
     strategy :github_latest
   end
-
-  # v0.1.0 ships an Apple Silicon build only; an Intel build is added from the next release.
-  depends_on arch: :arm64
 
   app "Desktop Pet.app"
 
